@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Mascotas</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+    <h1>Registro de Mascotas</h1>
+    <form id="registroForm" action="addMascota.php" method="POST" enctype="multipart/form-data">
+        <h2>Datos de la Mascota</h2>
+        
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="sexo">Sexo:</label>
+        <select id="sexo" name="sexo" required>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+        </select>
+
+        <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required onchange="calcularEdad()">
+
+        <label for="edad">Edad:</label>
+        <input type="text" id="edad" name="edad" readonly>
+
+        <label for="peso">Peso:</label>
+        <input type="number" id="peso" name="peso" step="0.01">
+
+        <label for="tipo_mascota">Tipo de mascota:</label>
+        <select id="tipo_mascota" name="tipo_mascota" required onchange="actualizarRaza()">
+            <option value="Perro">Perro</option>
+            <option value="Gato">Gato</option>
+            <option value="Loro">Loro</option>
+            <option value="Otro">Otro</option>
+        </select>
+        <button type="button" id="agregarTipo" onclick="agregarTipoMascota()">Agregar Tipo de Mascota</button>
+
+        <label for="raza">Raza:</label>
+        <select id="raza" name="raza" required>
+            <option value="Labrador" class="Perro">Labrador</option>
+            <option value="Bulldog" class="Perro">Bulldog</option>
+            <option value="Beagle" class="Perro">Beagle</option>
+            <option value="Persa" class="Gato">Persa</option>
+            <option value="Siames" class="Gato">Siames</option>
+            <option value="Otro" class="Otro">Otro</option>
+        </select>
+
+        <label for="tamano">Tamaño:</label>
+        <select id="tamano" name="tamano" required>
+            <option value="Pequeño">Pequeño</option>
+            <option value="Mediano">Mediano</option>
+            <option value="Grande">Grande</option>
+        </select>
+
+        <label for="foto">Foto:</label>
+        <input type="file" id="foto" name="foto" accept="image/*">
+
+        <label for="alergias">Alergias:</label>
+        <textarea id="alergias" name="alergias"></textarea>
+
+        <h2>Datos del Propietario</h2>
+        
+        <label for="documento_tipo">Tipo de Documento:</label>
+        <select id="documento_tipo" name="documento_tipo" required>
+            <option value="DNI">DNI</option>
+            <option value="Pasaporte">Pasaporte</option>
+            <option value="Otro">Otro</option>
+        </select>
+
+        <label for="documento_numero">Número de Documento:</label>
+        <input type="text" id="documento_numero" name="documento_numero" required>
+
+        <label for="apellidos_nombres">Apellidos y Nombres:</label>
+        <input type="text" id="apellidos_nombres" name="apellidos_nombres" required>
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" name="correo">
+
+        <label for="direccion">Dirección:</label>
+        <textarea id="direccion" name="direccion"></textarea>
+
+        <label for="referencia">Referencia:</label>
+        <input type="text" id="referencia" name="referencia">
+
+        <h2>Datos del Internamiento</h2>
+        
+        <label for="motivo_internamiento">Motivo:</label>
+        <textarea id="motivo_internamiento" name="motivo_internamiento"></textarea>
+
+        <label for="fecha_ingreso">Fecha de Ingreso:</label>
+        <input type="date" id="fecha_ingreso" name="fecha_ingreso">
+
+        <label for="fecha_salida">Fecha de Salida:</label>
+        <input type="date" id="fecha_salida" name="fecha_salida">
+
+        <label for="peso_internamiento">Peso:</label>
+        <input type="number" id="peso_internamiento" name="peso_internamiento" step="0.01">
+
+        <label for="temperatura">Temperatura:</label>
+        <input type="number" id="temperatura" name="temperatura" step="0.1">
+
+        <label for="diagnostico">Diagnóstico:</label>
+        <textarea id="diagnostico" name="diagnostico"></textarea>
+
+        <label for="comentarios_internamiento">Comentarios:</label>
+        <textarea id="comentarios_internamiento" name="comentarios_internamiento"></textarea>
+
+        <label for="total_a_pagar">Total a Pagar:</label>
+        <input type="number" id="total_a_pagar" name="total_a_pagar" step="0.01">
+
+        <h2>Historial de Vacunas</h2>
+        
+        <label for="vacuna_fecha">Fecha:</label>
+        <input type="date" id="vacuna_fecha" name="vacuna_fecha">
+
+        <label for="vacuna_tipo">Tipo:</label>
+        <input type="text" id="vacuna_tipo" name="vacuna_tipo">
+
+        <label for="vacuna_comentarios">Comentarios:</label>
+        <textarea id="vacuna_comentarios" name="vacuna_comentarios"></textarea>
+
+        <button type="submit">Registrar Mascota</button>
+        <br>
+        <a href="export.php" class="export-button">Exportar a Excel</a>
+    </form>
+    <script src="scripts/scripts.js"></script>
+</body>
+</html>
